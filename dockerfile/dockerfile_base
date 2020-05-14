@@ -1,0 +1,18 @@
+# This is the least workernet image that can run openmpi, makefile
+# openmpi brings in python3.5
+FROM ubuntu:16.04
+
+# avoid warning of debconf
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN sed -i 's/archive.ubuntu.com/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+RUN apt-get update
+
+RUN apt-get install -y make openssh-server libopenmpi1.10 \
+&& apt-get install -y libpetsc3.6 libglib2.0-0 libboost-system1.58 libcholmod3.0.6 \
+&& apt-get install -y wget jq libalglib3.10
+
+RUN apt-get install -y libgmp10
+
+RUN rm -rf /var/lib/apt/lists/*
+

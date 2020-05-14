@@ -1,0 +1,9 @@
+FROM linuxmintd/mint18-amd64:latest
+
+RUN apt update
+RUN apt install libopenmpi-dev -y
+
+ADD ./setup.sh /
+
+
+CMD ["/setup.sh"]

@@ -62,3 +62,6 @@ set filepath=%~dp1
 set filename=%~n1
 set fileextension=%~x1
 goto :eof
+
+rem 按任意键退出
+pause>nul
